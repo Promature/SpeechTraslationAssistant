@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Speech Recognition and Translation</title>
+    <link rel="stylesheet" href="../static/style.css">
+    
+</head>
+
+<body>
+    <h1>Speech Recognition and Translation</h1>
+    <div class="formBody">
+        <form method="POST">
+            <label for="input_language">Input Language:</label>
+            <!-- <input type="text" name="input_language" required><br><br> -->
+            <select id="input_language" name="input_language">
+                <option value="mr">Marathi</option>
+                <option value="en">English</option>
+                <option value="fr">France</option>
+                <option value="de">German</option>
+                <option value="hi">Hindi</option>
+                <option value="ja">Japanese</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malyalam</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+            </select>
+    
+            <br>
+            <hr>
+            <br>
+    
+            <label for="output_language">Output Language:</label>
+            <!-- <input type="text" name="output_language" required><br><br> -->
+          
+            <select id="output_language" name="output_language">
+                <option value="mr">Marathi</option>
+                <option value="en">English</option>
+                <option value="fr">France</option>
+                <option value="de">German</option>
+                <option value="hi">Hindi</option>
+                <option value="ja">Japanese</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malyalam</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+            </select>
+            <br>
+            <button type="submit" onclick="show()" id="btnID">Submit</button>
+        </form>
+    </div>
+
+    <img src="../static/images/googleAudio.gif" alt="..."id="image">
+    
+
+    {% if translation %}
+    <h2>Translation:</h2>
+    <p>{{ translation }}</p>
+    <!-- Add the 'autoplay' attribute to the <audio> tag to play automatically -->
+    <audio controls autoplay>
+        <source src="hello.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    {% endif %}
+    {% if error %}
+    <h2>Error:</h2>
+    <p>{{ error }}</p>
+    {% endif %}
+
+    <script>
+        function show() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('image')
+                .style.display = "block";
+            document.getElementById('btnID')
+                .style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

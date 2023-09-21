@@ -1,0 +1,27 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: rgb(181, 235, 247);
+  margin: 20px;
+  padding: 20px;
+}
+.formBody{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+ 
+  text-align: center;
+ 
+}
+.audioImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+#image{
+  display: none;
+  width: 20%;
+}

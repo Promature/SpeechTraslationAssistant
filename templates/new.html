@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Speech Translator</title>
+    <style>
+        .container {
+            margin: auto;
+            padding: 15px;
+        }
+
+        .row {
+            display: flex;
+            text-align: center;
+        }
+
+
+        .column {
+            flex: 50%;
+        }
+
+        .formBox {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            margin-right: 10px;
+            margin-left: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .heading {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .subHead {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        #col1 {
+            background-color: rgb(230, 232, 234);
+        }
+
+        #col2 {
+            background-color: rgb(188, 249, 127);
+        }
+
+        #btnID {
+            margin: 20px;
+            padding: 10px;
+            width: 30%;
+            background-color: rgb(50, 208, 82);
+            border-radius: 5px;
+        }
+
+        #image {
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="column" id="col1">
+                <h1 class="heading">Speech Recognition & Translation</h1>
+                <div class="formBox">
+
+                    <form method="POST">
+                        <label for="input_language">Input Language:</label>
+                        <!-- <input type="text" name="input_language" required><br><br> -->
+                        <select id="input_language" name="input_language">
+                            <option value="mr">Marathi</option>
+                            <option value="en">English</option>
+                            <option value="fr">France</option>
+                            <option value="de">German</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ja">Japanese</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malyalam</option>
+                            <option value="ta">Tamil</option>
+                            <option value="te">Telugu</option>
+                        </select>
+
+                        <br>
+                        <hr>
+                        <br>
+
+                        <label for="output_language">Output Language:</label>
+                        <!-- <input type="text" name="output_language" required><br><br> -->
+
+                        <select id="output_language" name="output_language">
+                            <option value="mr">Marathi</option>
+                            <option value="en">English</option>
+                            <option value="fr">France</option>
+                            <option value="de">German</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ja">Japanese</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malyalam</option>
+                            <option value="ta">Tamil</option>
+                            <option value="te">Telugu</option>
+                        </select>
+                        <br>
+                        <button type="submit" onclick="show()" id="btnID">Submit</button>
+                        <br>
+                        <img src="../static/images/googleAudio.gif" alt="..." id="image">
+                    </form>
+
+                </div>
+            </div>
+            <div class="column" id="col2">
+                <h2 class="subHead">Response</h2>
+                {% if translation %}
+                <h2>Translation:</h2>
+                <p>{{ translation }}</p>
+                <!-- Add the 'autoplay' attribute to the <audio> tag to play automatically -->
+                <audio controls autoplay>
+                    <source src="hello.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                {% endif %}
+                {% if error %}
+                <h2>Error:</h2>
+                <p>{{ error }}</p>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function show() {
+            /* Access image by id and change
+            the display property to block*/
+            document.getElementById('image')
+                .style.display = "block";
+            document.getElementById('btnID')
+                .style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
